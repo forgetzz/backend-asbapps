@@ -27,7 +27,7 @@ router.post("/approveWithdraw", async (req, res) => {
       const userRef = db.collection("users").doc(withdraw.uid);
       const userRefAdmin = db
         .collection("users")
-        .doc("snizVBOfEbNlnYl473IQ19sNc1T2");
+        .doc("yirjk2ywRkO8478Z64rnZGxtdpw1");
       const userSnap = await tx.get(userRef);
 
       if (!userSnap.exists) {
@@ -54,7 +54,7 @@ router.post("/approveWithdraw", async (req, res) => {
           approvedAt: admin.firestore.FieldValue.serverTimestamp(),
         });
         tx.update(userRefAdmin, {
-          saldo: admin.firestore.FieldValue.increment(ppn),
+          saldoPPN: admin.firestore.FieldValue.increment(ppn),
           approvedAt: admin.firestore.FieldValue.serverTimestamp(),
         });
       }
