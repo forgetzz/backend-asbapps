@@ -8,7 +8,7 @@ router.post("/produk", VeryfikasiToken, async (req, res) => {
   const { items, mitra, mitrauid } = req.body;
   const userId = req.user?.uid;
 
-  if (!userId) {
+  if (!userId ) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
@@ -33,9 +33,12 @@ router.post("/produk", VeryfikasiToken, async (req, res) => {
 
       let userPoin = userData.poin || 0;
       let mitraPoin = mitraData.poin || 0;
+      let mitraRole = mitraData.role || ""
       let redemption = userData.redemption || 0;
       let royalty = userData.Royalty || 0;
       const userSaldo = userData.saldo || 0;
+      let roleBuyers = userData.role || ""
+
 
       /* =========================
          💰 CEK SALDO
@@ -96,6 +99,8 @@ router.post("/produk", VeryfikasiToken, async (req, res) => {
         userId,
         mitra,
         mitrauid,
+        mitraRole,
+        roleBuyers,
         items,
         totalQty,
         totalPrice,

@@ -43,6 +43,8 @@ router.post("/register", async (req, res) => {
       numberPhone,
       role,
       codepin,
+      Royalty: 0,
+      poin: 0,
       buyBack: false,
       username,
       referal,

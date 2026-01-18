@@ -36,7 +36,7 @@ module.exports = router.post("/buypin", VeryfikasiToken, async (req, res) => {
       // update user
       t.update(userRef, {
         saldo: saldoSekarang - totalPrice,
-        pin: pinSekarang + totalQty,
+        pin: pinSekarang + 1,
       });
 
       // simpan history

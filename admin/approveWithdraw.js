@@ -38,7 +38,7 @@ router.post("/approveWithdraw", async (req, res) => {
         const amount = withdraw.amount;
         const saldo = userSnap.data().saldo;
 
-        const ppn = amount * 0.2;
+        const ppn = amount - 20000;
         const total = amount - ppn;
 
         if (saldo < total) {
